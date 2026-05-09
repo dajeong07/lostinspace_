@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOST IN SPACE</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+<div id="guide-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 3000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
+    <div style="position: relative; width: 450px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 40px; border-radius: 30px; color: white; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+        
+        <h2 style="margin-top: 0; letter-spacing: 3px;">LOST IN SPACE</h2>
+        <p style="opacity: 0.8; line-height: 1.8; font-size: 14px;">
+            
+            • 마우스를 움직이거나 드래그하여 우주 속을 떠도는 분실물들를 탐색하세요.<br>
+            • 아이템을 클릭하여 분실물들의 이야기에 공감하세요.
+        </p>
+        <button onclick="closeGuide()" style="margin-top: 20px; background: white; border: none; padding: 10px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">탐색 시작</button>
+    </div>
+</div>
+
+<div onclick="openGuide()" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; z-index: 2500; backdrop-filter: blur(10px); transition: 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">
+    ?
+</div>
+
+    <div class="universe">
+        <div class="lost-item">
+            <div class="graphic"><img src="CD.png" alt="분실물"></div>
+            <div class="caption">
+                <div class="title">CD_#0221</div>
+                <div class="text">기억은 나지 않지만 유독 좋아하던 해외 팝 가수의 앨범이 있었다. 
+                CD를 통해 앨범의 음악을 듣곤 했는데, 기술이 변하며 CD를 찾지 않게 되자 물건은 어느새 사라졌다.
+                하지만 노래를 들을 때의 선명한 공기와 설렘만은 감각으로 남아있다. 
+                   </div>
+            </div>
+        </div>
+
+        <div class="lost-item">
+            <div class="graphic"><img src="PHONE.png" alt="분실물"></div>
+            <div class="caption">
+                <div class="title">PHONE_#0101</div>
+                <div class="text">스무 살을 맞아 친구들과 술집에서 생애 첫 과음을 했다.
+                     세상이 빙글빙글 돌고 필름이 끊긴 채 정신을 차려보니 내 방 침대 위였다. 
+                    하지만 머리맡에 있어야 할 휴대폰은 온데간데 없었다.</div>
+            </div>
+        </div>
+
+         <div class="lost-item">
+            <div class="graphic"><img src="DOLL.png" alt="분실물"></div>
+            <div class="caption">
+                <div class="title">DOLL_#1011</div>
+                <div class="text">고등학생 시절, 가방에 달고 다니던 곰돌이 키링이 있었다. 
+                    어느 날 가방을 보니 인형은 없고 고리만이 달랑거리고 있었다. 
+                    길바닥에 홀로 떨어져 있을 인형 생각에 그날 밤 베개가 젖을 정도로 펑펑 울었다.
+                </div>
+            </div>
+        </div>
+
+        <div class="lost-item">
+            <div class="graphic"><img src="FLOWER.png" alt="분실물"></div>
+            <div class="caption">
+                <div class="title">FLOWER_#0508</div>
+                <div class="text">기념일을 맞아 소중하게 품고 다니던 꽃다발이었다. 
+                    사람 가득한 퇴근길 지하철, 꽃이 꺾일까 봐 가슴에 꼭 안고 탔지만 내릴 때의 인파는 생각보다 훨씬 거칠었다. 
+                    인파에 밀려 플랫폼에 발을 디뎠을 때, 내 손에는 리본 끈만 허망하게 남아 있었다. 
+                </div>
+            </div>
+        </div>
+
+        <div class="lost-item">
+            <div class="graphic"><img src="BAG.png" alt="분실물"></div>
+            <div class="caption">
+                <div class="title">BAG_#0302</div>
+                <div class="text">짐이 많아 무거웠던 가방을 버스 옆자리에 잠시 내려놓고 깜빡 잠이 들었다. 
+                    목적지 정류장에 도착했다는 소리에 헐레벌떡 버스에서 내렸고, 멀어지는 버스 뒷모습을 보며 가방을 두고 왔음을 뒤늦게 깨달았다.
+                </div>
+            </div>
+        </div>
+
+    <div class="lost-item">
+            <div class="graphic"><img src="UMBRELLA.png" alt="분실물"></div>
+            <div class="caption">
+                <div class="title">UMBRELLA_#0712</div>
+                <div class="text"> 비 오는 날 식당에서 기분 좋게 밥을 먹고 나왔는데, 우산꽂이에 있던 내 우산만 감쪽같이 사라져 있었다. 
+                   그 날은 그렇게 비에 쫄딱 맞으며 우울하게 집으로 돌아왔다.
+                </div>
+            </div>
+        </div>
+
+    <div class="lost-item">
+            <div class="graphic"><img src="RING.png" alt="분실물"></div>
+            <div class="caption">
+                <div class="title">RING_#0522</div>
+                <div class="text">손을 씻으려 화장실 세면대 선반 위에 잠시 아끼는 반지를 빼두었다. 
+                    짧은 찰나, 실수로 반지를 건드렸고 반지가 경쾌한 소리를 내며 배수구 안으로 쏙 빨려 들어갔다. 
+                    손을 뻗을 틈도 없이 깊은 어둠 속으로 사라진 반지는 다시는 내 손가락으로 돌아오지 못했다.</div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+
+<script>
+
+function closeGuide() {
+    const modal = document.getElementById('guide-modal');
+    if (modal) {
+        modal.style.opacity = '0';
+        modal.style.transition = '0.4s';
+        setTimeout(() => { modal.style.display = 'none'; }, 400);
+    }
+}
+
+function openGuide() {
+    const modal = document.getElementById('guide-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        setTimeout(() => { modal.style.opacity = '1'; }, 10);
+    }
+}
+
+window.onload = function() {
+    const universe = document.querySelector('.universe');
+    const items = document.querySelectorAll('.lost-item');
+    const startBtn = document.querySelector('#guide-modal button');
+    const infoBtn = document.getElementById('info-btn'); 
+    
+    if (startBtn) startBtn.addEventListener('click', closeGuide);
+    if (infoBtn) infoBtn.addEventListener('click', (e) => { e.stopPropagation(); openGuide(); });
+
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    
+    let spaceWidth = window.innerWidth * 2.5; 
+    let spaceHeight = window.innerHeight * 1.8;
+    let stars = [];
+    let ripples = []; 
+    let highestZ = 100;
+
+    let translateX = -window.innerWidth * 0.5, translateY = -window.innerHeight * 0.3;
+    let velX = 0, velY = 0, isDraggingBoard = false;
+    let activeItems = new Set(); 
+    let lastX, lastY, mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        stars = Array.from({length: 150}, () => ({
+            x: Math.random() * spaceWidth, y: Math.random() * spaceHeight,
+            vx: (Math.random() - 0.5) * 0.02, vy: (Math.random() - 0.5) * 0.02,
+            baseSize: Math.random() * 1.2 + 0.2, 
+            phase: Math.random() * Math.PI * 2,
+            color: '#ffffff'
+        }));
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const itemStates = Array.from(items).map(item => {
+        const itemSize = 0.7 + Math.random() * 0.5;
+        
+        
+        const captionWidth = 240; 
+        const iconWidth = 240 * itemSize;
+        // 아이콘보다 텍스트가 더 클 경우를 대비해 삐져나가는 여백 계산
+        const sideMargin = Math.max(0, (captionWidth - iconWidth) / 2) + 20;
+
+        return {
+            element: item, 
+            scale: itemSize,
+            radius: (iconWidth) / 2 + 15, 
+            x: Math.random() * (spaceWidth - iconWidth - sideMargin * 2) + sideMargin,
+            y: Math.random() * (spaceHeight - iconWidth - 250) + 50, // 하단은 텍스트 높이 때문에 더 띄움
+            vx: (Math.random() - 0.5) * 0.15,
+            vy: (Math.random() - 0.5) * 0.15,
+            angle: (Math.random() - 0.5) * 30,
+            rotSpeed: (Math.random() - 0.5) * 0.005,
+            floatPhase: Math.random() * Math.PI * 2,
+            sideMargin: sideMargin // 좌우 충돌 시 사용할 값
+        };
+    });
+
+    items.forEach((item, idx) => {
+        item.style.filter = "none";
+        
+        item.addEventListener('mouseenter', () => {
+            if (!item.classList.contains('active')) {
+                item.style.filter = "none";
+            }
+        });
+
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const state = itemStates[idx];
+            if (activeItems.has(state)) {
+                activeItems.delete(state);
+                item.classList.remove('active');
+                item.style.filter = "none";
+            } else {
+                activeItems.add(state);
+                item.classList.add('active');
+                highestZ++;
+                item.style.zIndex = highestZ;
+                item.style.filter = "drop-shadow(0 0 10px white)";
+                createRipple(e.clientX, e.clientY, 'rgba(255, 255, 255, 0.4)');
+            }
+        });
+    });
+
+    window.addEventListener('mousedown', (e) => {
+        if (!e.target.closest('.lost-item') && !e.target.closest('#guide-modal')) {
+            isDraggingBoard = true;
+            lastX = e.clientX; lastY = e.clientY;
+        }
+    });
+
+    function createRipple(x, y, color) {
+        ripples.push({ x, y, r: 0, opacity: 1, color, speed: 1.5 });
+    }
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        if (isDraggingBoard) {
+            const dx = e.clientX - lastX, dy = e.clientY - lastY;
+            translateX += dx; translateY += dy;
+            velX = dx; velY = dy;
+        }
+        lastX = e.clientX; lastY = e.clientY;
+    });
+
+    window.addEventListener('mouseup', () => { isDraggingBoard = false; });
+
+    function update() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        stars.forEach(s => {
+            s.x += s.vx; s.y += s.vy;
+            let sx = (s.x + translateX * 0.3) % window.innerWidth;
+            let sy = (s.y + translateY * 0.3) % window.innerHeight;
+            if (sx < 0) sx += window.innerWidth; if (sy < 0) sy += window.innerHeight;
+            ctx.fillStyle = s.color;
+            ctx.globalAlpha = (Math.sin(s.phase += 0.02) * 0.5 + 0.5) * 0.8;
+            ctx.beginPath(); ctx.arc(sx, sy, s.baseSize, 0, Math.PI * 2); ctx.fill();
+        });
+
+        ripples = ripples.filter(rp => rp.opacity > 0);
+        ripples.forEach(rp => {
+            rp.r += rp.speed; rp.opacity -= 0.01;
+            ctx.beginPath(); ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+            ctx.strokeStyle = rp.color; ctx.globalAlpha = Math.max(0, rp.opacity);
+            ctx.lineWidth = 1; ctx.stroke();
+        });
+
+        itemStates.forEach((state, i) => {
+            state.floatPhase += 0.005;
+            state.x += state.vx + Math.sin(state.floatPhase) * 0.1;
+            state.y += state.vy + Math.cos(state.floatPhase) * 0.1;
+            state.angle += state.rotSpeed;
+            
+            const currentRotation = Math.sin(state.angle) * 8;
+            const itemSizeActual = 240 * state.scale;
+
+            
+            if (state.x < state.sideMargin) {
+                state.x = state.sideMargin;
+                state.vx *= -1;
+            } else if (state.x > spaceWidth - itemSizeActual - state.sideMargin) {
+                state.x = spaceWidth - itemSizeActual - state.sideMargin;
+                state.vx *= -1;
+            }
+
+            
+            if (state.y < 50) {
+                state.y = 50;
+                state.vy *= -1;
+            } else if (state.y > spaceHeight - itemSizeActual - 200) {
+                state.y = spaceHeight - itemSizeActual - 200;
+                state.vy *= -1;
+            }
+
+            for (let j = i + 1; j < itemStates.length; j++) {
+                const other = itemStates[j];
+                const dx = (state.x + itemSizeActual/2) - (other.x + (240 * other.scale)/2);
+                const dy = (state.y + itemSizeActual/2) - (other.y + (240 * other.scale)/2);
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const minDist = state.radius + other.radius;
+
+                if (dist < minDist) {
+                    const overlap = (minDist - dist) * 0.03;
+                    const nx = dx / (dist || 1);
+                    const ny = dy / (dist || 1);
+                    state.x += nx * overlap; state.y += ny * overlap;
+                    other.x -= nx * overlap; other.y -= ny * overlap;
+                }
+            }
+
+            state.element.style.transform = `translate3d(${state.x}px, ${state.y}px, 0) scale(${state.scale}) rotate(${currentRotation}deg)`;
+            
+            const caption = state.element.querySelector('.caption');
+            if (caption) {
+                caption.style.transform = `scale(${1 / state.scale}) rotate(${-currentRotation}deg)`;
+            }
+        });
+
+        if (!isDraggingBoard) {
+            translateX -= (mouseX - window.innerWidth / 2) * 0.005;
+            translateY -= (mouseY - window.innerHeight / 2) * 0.005;
+            translateX += velX; translateY += velY;
+            velX *= 0.92; velY *= 0.92; 
+        }
+
+        const minX = -(spaceWidth - window.innerWidth);
+        const minY = -(spaceHeight - window.innerHeight);
+        translateX = Math.min(0, Math.max(translateX, minX));
+        translateY = Math.min(0, Math.max(translateY, minY));
+
+        universe.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+        requestAnimationFrame(update);
+    }
+    update();
+};
+
+</script>
+
+
+</body>
+</html>
